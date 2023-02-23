@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ChatAppAndroid</string>
+    <string name="we_will_send_you_an">We will send you an</string>
+    <string name="title_edit_text">Type your Phone Number</string>
+    <string name="did_not_receive_otp">did not receive OTP</string>
+    <string name="resend_otp">resend otp</string>
+    <string name="verify">verify</string>
+</resources>
