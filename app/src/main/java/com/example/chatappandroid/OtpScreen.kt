@@ -20,9 +20,9 @@ import java.util.concurrent.TimeUnit
 class OtpScreen : AppCompatActivity() {
     var binding: ActivityOtpScreenBinding?=null
     var verficationId:String?=null
-    var auth: FirebaseAuth?=null
+    var auth: FirebaseAuth =FirebaseAuth.getInstance()
     var dialog:ProgressDialog?=null
-    var context:Context?=null
+    var context:Context=this
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,18 +36,27 @@ class OtpScreen : AppCompatActivity() {
         supportActionBar?.hide()
         val phoneNumber=intent.getStringExtra("phoneNumber")
         binding!!.phoneLabel.text="Verify $phoneNumber"
-        val options: PhoneAuthOptions? = PhoneAuthOptions.newBuilder(auth!!)
+
+        val options = PhoneAuthOptions.newBuilder(auth)
             .setPhoneNumber(phoneNumber!!)
             .setTimeout(60L, TimeUnit.SECONDS)
             .setActivity(this)
             .setCallbacks(
                 object: PhoneAuthProvider.OnVerificationStateChangedCallbacks(){
                     override fun onVerificationCompleted(p0: PhoneAuthCredential) {
-                        TODO("Not yet implemented")
+                        dialog= ProgressDialog(this@OtpScreen)
+                        dialog!!.setMessage("the Code Message Correct ✅")
+                        dialog!!.setCancelable(false)
+                        dialog!!.show()
+                        supportActionBar?.hide()
                     }
 
                     override fun onVerificationFailed(p0: FirebaseException) {
-                        TODO("Not yet implemented")
+                        dialog= ProgressDialog(this@OtpScreen)
+                        dialog!!.setMessage("the Code Message Not Correct ⛔")
+                        dialog!!.setCancelable(false)
+                        dialog!!.show()
+                        supportActionBar?.hide()
                     }
 
                     override fun onCodeSent(verifyId: String, forceResendingToken: PhoneAuthProvider.ForceResendingToken) {
@@ -58,8 +67,8 @@ class OtpScreen : AppCompatActivity() {
                         imm.toggleSoftInput(InputMethodManager.SHOW_FORCED,0)
                         binding!!.otpView.requestFocus()
                     }
-                }).build()
-        PhoneAuthProvider.verifyPhoneNumber(options!!)
+                    }).build()
+        PhoneAuthProvider.verifyPhoneNumber(options)
         binding!!.otpView.otpListener = object : OTPListener {
             override fun onInteractionListener() {
                 // fired when user types something in the OTP BOX
@@ -68,14 +77,15 @@ class OtpScreen : AppCompatActivity() {
             override fun onOTPComplete(otp: String) {
                 // fired when user has entered the OTP fully.
                 val credential= PhoneAuthProvider.getCredential(verficationId!!,otp)
-                auth!!.signInWithCredential(credential).addOnCompleteListener { task->
+                auth.signInWithCredential(credential).addOnCompleteListener {
+                        task->
                     if(task.isSuccessful){
                         val intent= Intent(context,SetupProfileActivity::class.java)
                         startActivity(intent)
                         finishAffinity()
 
                     }else{
-                        Toast.makeText(context,"Failed", Toast.LENGTH_LONG)
+                        Toast.makeText(context,"Failed", Toast.LENGTH_LONG).show()
                     }
                 }
             }

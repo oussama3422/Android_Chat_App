@@ -5,4 +5,8 @@
     <string name="did_not_receive_otp">did not receive OTP</string>
     <string name="resend_otp">resend otp</string>
     <string name="verify">verify</string>
+    <string name="profile_info">Profile Information</string>
+    <string name="des_profile">Please set you name and an optional Profile Image</string>
+    <string name="desc">Work In Android Development and Flutter Development</string>
+    <string name="profile_name">Profile Name</string>
 </resources>

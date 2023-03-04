@@ -9,7 +9,7 @@
     android:layout_gravity="center"
     android:gravity="center_horizontal"
     android:background="#F2F7F4"
-    tools:context=".OtpActivity">
+    tools:context=".OtpScreen">
     <ImageView
         android:src="@drawable/img"
         android:scaleType="centerCrop"

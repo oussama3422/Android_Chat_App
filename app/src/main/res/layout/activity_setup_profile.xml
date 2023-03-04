@@ -1,9 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_gravity="center"
     tools:context=".SetupProfileActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/imgeView"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/img3"
+        android:layout_width="150dp"
+        android:layout_height="150dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/profile_info"
+        android:layout_marginTop="19dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:textStyle="bold|normal"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/des_profile"
+        android:layout_marginTop="19dp"
+        android:textAlignment="center"
+        android:textSize="13sp"
+        android:textColor="@color/black"
+        android:textStyle="bold|normal"
+        />
+
+    <androidx.cardview.widget.CardView
+
+        app:cardUseCompatPadding="true"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_margin="15dp"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/userNameProfile"
+                android:layout_width="match_parent"
+                android:padding="10dp"
+                android:ems="1"
+                android:layout_height="wrap_content"
+                android:textStyle="bold|normal"
+                android:textSize="20dp"
+                android:textColor="#1C1C1C"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/background_shape"
+                android:hint="Type your name"
+                />
+            <Button
+                android:id="@+id/ProfileBtn"
+                android:text="Setup Profile"
+                android:textStyle="bold|normal"
+                android:textSize="16sp"
+                android:backgroundTint="#228C27"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
