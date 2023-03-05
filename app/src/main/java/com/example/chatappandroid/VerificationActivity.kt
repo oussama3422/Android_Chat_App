@@ -18,11 +18,11 @@ class VerificationActivity : AppCompatActivity() {
 //        setContentView(R.layout.activity_verification)
 
         auth=FirebaseAuth.getInstance()
-//        if(auth!!.currentUser==null){
-//            val intent= Intent(this@VerificationActivity,MainActivity::class.java)
-//            startActivity(intent)
-//            finish()
-//        }
+        if(auth!!.currentUser!=null){
+            val intent= Intent(this@VerificationActivity,MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
         supportActionBar?.hide()
         binding!!.editNumber.requestFocus()
         binding!!.continueBtn.setOnClickListener {

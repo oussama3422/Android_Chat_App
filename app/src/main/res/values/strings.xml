@@ -9,4 +9,6 @@
     <string name="des_profile">Please set you name and an optional Profile Image</string>
     <string name="desc">Work In Android Development and Flutter Development</string>
     <string name="profile_name">Profile Name</string>
+    <string name="profilename">Profile Name</string>
+    <string name="status">Online</string>
 </resources>
