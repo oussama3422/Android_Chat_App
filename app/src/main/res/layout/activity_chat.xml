@@ -63,7 +63,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/status"
                     android:textSize="11sp"
-                    android:visibility="invisible"
+                    android:visibility="visible"
                     android:textStyle="bold|normal"
                     android:textColor="@color/white"
                     />
@@ -81,11 +81,6 @@
         android:id="@+id/linear01"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="visible"
-            />
 
 
     </LinearLayout>
@@ -132,7 +127,7 @@
                         android:textSize="15sp"
                         android:textStyle="bold"
                         android:textColorHint="#424242"
-                        android:textColor="@color/transparent"
+                        android:textColor="@color/black"
                         android:padding="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
@@ -162,6 +157,7 @@
 
         </androidx.cardview.widget.CardView>
         <ImageView
+            android:id="@+id/sendBtn"
             android:background="@drawable/background_shape"
             android:backgroundTint="#3244AA"
             android:src="@drawable/ic_send"

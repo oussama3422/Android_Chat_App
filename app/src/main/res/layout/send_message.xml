@@ -7,6 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <LinearLayout
+        android:id="@+id/mLinear"
         android:orientation="horizontal"
         android:background="@drawable/send"
         android:padding="15dp"
@@ -25,7 +26,7 @@
             />
     </LinearLayout>
     <ImageView
-        android:id="@+id/mLinear"
+        android:id="@+id/image"
         android:layout_margin="5dp"
         android:scaleType="centerCrop"
         android:visibility="gone"

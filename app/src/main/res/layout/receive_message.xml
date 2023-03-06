@@ -7,6 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
    <LinearLayout
+       android:id="@+id/mLinear"
        android:orientation="horizontal"
        android:background="@drawable/receive"
        android:padding="15dp"
@@ -14,6 +15,7 @@
        android:layout_width="wrap_content"
        android:layout_height="wrap_content">
        <TextView
+           android:id="@+id/message"
            android:text="@string/app_name"
            android:textSize="16sp"
            android:textStyle="bold|normal"
@@ -24,7 +26,7 @@
            />
    </LinearLayout>
     <ImageView
-        android:id="@+id/mLinear"
+        android:id="@+id/image"
         android:layout_margin="5dp"
         android:scaleType="centerCrop"
         android:visibility="gone"
