@@ -2,14 +2,12 @@ package com.example.chatappandroid
 
 import android.annotation.SuppressLint
 import android.app.ProgressDialog
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.GridLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.chatappandroid.adapter.UserAdapter
 import com.example.chatappandroid.databinding.ActivityMainBinding
-import com.example.chatappandroid.databinding.ActivityVerificationBinding
+import com.example.chatappandroid.model.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -22,7 +20,7 @@ class MainActivity : AppCompatActivity() {
     var users:ArrayList<User>?=null
     var usersAdapter:UserAdapter?=null
     var dialog:ProgressDialog?=null
-    var user:User?=null
+    var user: User?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding=ActivityMainBinding.inflate(layoutInflater)
@@ -53,7 +51,7 @@ class MainActivity : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                  users!!.clear()
                 for(snapshot1 in snapshot.children){
-                    val user:User?=snapshot1.getValue(User::class.java)
+                    val user: User?=snapshot1.getValue(User::class.java)
                     if(!user!!.uid.equals(FirebaseAuth.getInstance().uid)) users!!.add(user)
                 }
                 usersAdapter!!.notifyDataSetChanged()

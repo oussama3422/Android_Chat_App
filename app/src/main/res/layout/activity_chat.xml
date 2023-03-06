@@ -24,6 +24,7 @@
             android:layout_height="wrap_content">
             <ImageView
                 android:id="@+id/imageView"
+
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:src="@drawable/ic_backspace"
@@ -89,6 +90,7 @@
 
     </LinearLayout>
     <LinearLayout
+        android:background="@drawable/bottom_shape"
         android:id="@+id/linear02"
         android:layout_above="@+id/linear01"
         android:orientation="horizontal"
@@ -117,11 +119,13 @@
                     android:layout_weight="1"
                     android:orientation="vertical"
                     android:layout_gravity="center"
+                    android:gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <EditText
                         android:id="@+id/messageBox"
                         android:gravity="start"
+                        android:layout_marginStart="5dp"
                         android:paddingStart="5dp"
                         android:hint="@string/hint_text_edit_text"
                         android:paddingEnd="1dp"
@@ -157,7 +161,16 @@
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
-
+        <ImageView
+            android:background="@drawable/background_shape"
+            android:backgroundTint="#3244AA"
+            android:src="@drawable/ic_send"
+            android:layout_gravity="center"
+            android:padding="12dp"
+            android:layout_marginEnd="9dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:tint="@color/white" />
     </LinearLayout>
 
 </RelativeLayout>

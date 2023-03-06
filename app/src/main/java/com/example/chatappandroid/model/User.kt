@@ -1,4 +1,4 @@
-package com.example.chatappandroid
+package com.example.chatappandroid.model
 class User(
     var uid: String?,
     var name: String?,
